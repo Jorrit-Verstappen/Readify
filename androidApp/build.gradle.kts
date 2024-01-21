@@ -1,5 +1,4 @@
 import org.jetbrains.compose.ExperimentalComposeLibrary
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -38,10 +37,16 @@ android {
     namespace = "dev.jorritv.readify"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].manifest.srcFile("src/main/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
     defaultConfig {
         applicationId = "dev.jorritv.readify"
         minSdk = libs.versions.android.minSdk.get().toInt()
@@ -55,8 +60,21 @@ android {
         }
     }
     buildTypes {
-        getByName("release") {
+        debug {
+            versionNameSuffix = "-DEBUG"
+        }
+        release {
             isMinifyEnabled = false
+        }
+    }
+    val stageDimension = "stage"
+    flavorDimensions += listOf(stageDimension)
+    productFlavors {
+        create("dev") {
+            dimension = stageDimension
+        }
+        create("prod") {
+            dimension = stageDimension
         }
     }
     compileOptions {
