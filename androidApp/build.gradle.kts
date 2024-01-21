@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         
         androidMain.dependencies {
-            implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.androidx.compose.ui.tooling)
             implementation(libs.androidx.activity.compose)
         }
         commonMain.dependencies {
@@ -41,24 +41,18 @@ android {
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
     defaultConfig {
         applicationId = "dev.jorritv.readify"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+
+        vectorDrawables {
+            useSupportLibrary = true
         }
     }
+
     buildTypes {
         debug {
             versionNameSuffix = "-DEBUG"
@@ -81,8 +75,38 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+    }
     dependencies {
-        debugImplementation(libs.compose.ui.tooling)
+        val composeBom = platform(libs.androidx.compose.bom)
+        implementation(composeBom)
+        androidTestImplementation(composeBom)
+
+        implementation(libs.kotlin.stdlib)
+        implementation(libs.kotlinx.coroutines.android)
+
+        implementation(libs.androidx.core.ktx)
+        implementation(libs.androidx.appcompat)
+
+        implementation(libs.androidx.lifecycle.viewModelCompose)
+
+        implementation(libs.androidx.activity.compose)
+
+        implementation(libs.androidx.compose.foundation.layout)
+        implementation(libs.androidx.compose.material3)
+        implementation(libs.androidx.compose.ui.tooling.preview)
+        implementation(libs.androidx.compose.runtime)
+
+        debugImplementation(libs.androidx.compose.ui.tooling)
     }
 }
 
