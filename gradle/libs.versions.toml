@@ -4,17 +4,23 @@ android-minSdk = "28"
 android-targetSdk = "34"
 
 agp = "8.2.0"
+# Compose
 androidx-compose-bom = "2024.06.00"
 androidx-activity-compose = "1.9.0"
+compose-compiler = "1.5.8"
+compose-plugin = "1.5.11"
+#Lifecyle
 androidx-lifecycle = "2.8.3"
+# AndroidX
 androidx-appcompat = "1.7.0"
 androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.13.1"
-compose-compiler = "1.5.8"
-compose-plugin = "1.5.11"
-coroutines = "1.8.1"
+# Kotlin
 kotlin = "1.9.21"
-uiTextGoogleFonts = "1.6.8"
+coroutines = "1.8.1"
+reflect = "2.0.0"
+# Rest of the dependencies
+desugar-jdk-libs = "2.0.3"
 
 [libraries]
 # Compose
@@ -22,6 +28,7 @@ androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = 
 androidx-compose-animation = { module = "androidx.compose.animation:animation" }
 androidx-compose-foundation = { module = "androidx.compose.foundation:foundation" }
 androidx-compose-foundation-layout = { module = "androidx.compose.foundation:foundation-layout" }
+androidx-compose-material-icons = { module = "androidx.compose.material:material-icons-core"}
 androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
 androidx-compose-runtime = { module = "androidx.compose.runtime:runtime" }
 androidx-compose-ui = { module = "androidx.compose.ui:ui" }
@@ -39,13 +46,18 @@ androidx-lifecycle-viewModelCompose = { module = "androidx.lifecycle:lifecycle-v
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "androidx-lifecycle" }
 
+# AndroidX
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx" }
 
+# Kotlin
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
-androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "reflect" }
+
+# Rest of the dependencies
+desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar-jdk-libs" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

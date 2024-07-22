@@ -88,29 +88,33 @@ android {
         }
     }
     dependencies {
+        // Compose
         val composeBom = platform(libs.androidx.compose.bom)
         implementation(composeBom)
         androidTestImplementation(composeBom)
+        implementation(libs.androidx.compose.foundation.layout)
+        implementation(libs.androidx.compose.foundation.layout)
+        implementation(libs.androidx.compose.material.icons)
+        implementation(libs.androidx.compose.material3)
+        implementation(libs.androidx.compose.runtime)
+        implementation(libs.androidx.compose.ui.googlefonts)
+        debugImplementation(libs.androidx.compose.ui.tooling)
+        implementation(libs.androidx.compose.ui.tooling.preview)
+        implementation(libs.androidx.activity.compose)
 
-        coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
-
-        implementation(libs.kotlin.stdlib)
-        implementation(libs.kotlinx.coroutines.android)
-        implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.0")
-
-        implementation(libs.androidx.core.ktx)
-        implementation(libs.androidx.appcompat)
-
+        // Lifecyle
         implementation(libs.androidx.lifecycle.viewModelCompose)
 
-        implementation(libs.androidx.activity.compose)
-        implementation(libs.androidx.ui.text.google.fonts)
+        // AndroidX
+        implementation(libs.androidx.appcompat)
+        implementation(libs.androidx.core.ktx)
 
-        implementation(libs.androidx.compose.foundation.layout)
-        implementation(libs.androidx.compose.material3)
-        implementation(libs.androidx.compose.ui.tooling.preview)
-        implementation(libs.androidx.compose.runtime)
+        // Kotlin
+        implementation(libs.kotlin.stdlib)
+        implementation(libs.kotlinx.coroutines.android)
+        implementation(libs.kotlin.reflect)
 
-        debugImplementation(libs.androidx.compose.ui.tooling)
+        // Rest of the dependencies
+        coreLibraryDesugaring(libs.desugar.jdk.libs)
     }
 }
