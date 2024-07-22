@@ -104,6 +104,7 @@ android {
         implementation(libs.androidx.lifecycle.viewModelCompose)
 
         implementation(libs.androidx.activity.compose)
+        implementation(libs.androidx.ui.text.google.fonts)
 
         implementation(libs.androidx.compose.foundation.layout)
         implementation(libs.androidx.compose.material3)
