@@ -72,6 +72,7 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -91,8 +92,11 @@ android {
         implementation(composeBom)
         androidTestImplementation(composeBom)
 
+        coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+
         implementation(libs.kotlin.stdlib)
         implementation(libs.kotlinx.coroutines.android)
+        implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.0")
 
         implementation(libs.androidx.core.ktx)
         implementation(libs.androidx.appcompat)
@@ -109,4 +113,3 @@ android {
         debugImplementation(libs.androidx.compose.ui.tooling)
     }
 }
-
