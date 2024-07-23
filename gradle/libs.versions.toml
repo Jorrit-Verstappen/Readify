@@ -22,6 +22,7 @@ coroutines = "1.8.1"
 serialization = "1.7.1"
 # Rest of the dependencies
 desugar-jdk-libs = "2.0.4"
+coil = "2.7.0"
 
 [libraries]
 # Compose
@@ -60,6 +61,7 @@ kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-
 
 # Rest of the dependencies
 desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar-jdk-libs" }
+coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
