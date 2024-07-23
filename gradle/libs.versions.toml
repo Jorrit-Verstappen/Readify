@@ -17,10 +17,11 @@ androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.13.1"
 # Kotlin
 kotlin = "1.9.21"
-coroutines = "1.8.1"
 reflect = "2.0.0"
+coroutines = "1.8.1"
+serialization = "1.7.1"
 # Rest of the dependencies
-desugar-jdk-libs = "2.0.3"
+desugar-jdk-libs = "2.0.4"
 
 [libraries]
 # Compose
@@ -53,8 +54,9 @@ androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx
 
 # Kotlin
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
-kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "reflect" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 
 # Rest of the dependencies
 desugar-jdk-libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar-jdk-libs" }
@@ -64,3 +66,4 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

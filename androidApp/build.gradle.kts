@@ -111,8 +111,9 @@ android {
 
         // Kotlin
         implementation(libs.kotlin.stdlib)
-        implementation(libs.kotlinx.coroutines.android)
         implementation(libs.kotlin.reflect)
+        implementation(libs.kotlinx.coroutines.android)
+        implementation(libs.kotlinx.serialization)
 
         // Rest of the dependencies
         coreLibraryDesugaring(libs.desugar.jdk.libs)
