@@ -115,8 +115,11 @@ android {
         implementation(libs.kotlinx.coroutines.android)
         implementation(libs.kotlinx.serialization)
 
+        // Coil
+        implementation(libs.coil)
+        implementation(libs.coil.compose)
+
         // Rest of the dependencies
         coreLibraryDesugaring(libs.desugar.jdk.libs)
-        implementation(libs.coil)
     }
 }
